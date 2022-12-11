@@ -225,13 +225,4 @@ public class Matcher {
     {
         return input.substring(input.indexOf(to), input.lastIndexOf(from)-22);
     }
-
-    public static void countsc()
-    {
-        for(File filess: files)
-        {
-           filecount=filecount+1;
-        }
-           filecount=filecount+1;
-    }
 }
