@@ -25,7 +25,21 @@ public class Matcher {
     public static JFrame f;
     public static File[] files;
     public static String folderpath;
-     
+    public static File folder;
+      static{
+        folderpath ="C:\\Users\\Pogi\\Documents\\generated";
+        
+
+          folder =new File(folderpath);
+        if(!folder.exists()){
+            folder.mkdirs();
+            files = folder.listFiles();
+            filecount = files.length +1;
+         }else{
+            files = folder.listFiles();
+            filecount = files.length +1;
+         }
+    }
     public static void main(String args[]) 
     {
         try{
@@ -36,31 +50,20 @@ public class Matcher {
         }
         Scanner scanner = new Scanner(System.in);
 
-         folderpath ="C:\\Users\\Pogi\\Documents\\generated";
-        
-
-        File folder =new File(folderpath);
-        if(!folder.exists()){
-            folder.mkdirs();
-            files = folder.listFiles();
-         for(File file: files)
-         {
-             filecount=filecount+1;
-         }
-         filecount=filecount+1;
-         }else{
-            files = folder.listFiles();
-         for(File file: files)
-         {
-             filecount=filecount+1;
-         }
-         filecount=filecount+1;
-         }
+         
          
 
         //UI
 
           f= new JFrame(); 
+          
+          f.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent we) {
+                System.exit(0);
+             }
+         }
+        );
+
 
         JLabel  l1=new JLabel("Enter desire mod?");  
         l1.setBounds(50,30, 150,20); 
@@ -212,14 +215,11 @@ public class Matcher {
          '\n'+"		"+textitem1+
          '\n'+"}");
          JOptionPane.showMessageDialog(f,"Success generated files on "+ folderpath );
-         for(File filess: files)
-         {
-            filecount=filecount+1;
-         }
-            filecount=filecount+1;
+         files = folder.listFiles();
+         filecount = files.length +1;
            
         }
-
+       
         writer.close();
         reader.close();
     }
@@ -228,5 +228,14 @@ public class Matcher {
     public static String getStringBetweenTwoCharacters(String input, String to, String from)
     {
         return input.substring(input.indexOf(to), input.lastIndexOf(from)-22);
+    }
+
+    public static void countsc()
+    {
+        for(File filess: files)
+        {
+           filecount=filecount+1;
+        }
+           filecount=filecount+1;
     }
 }
