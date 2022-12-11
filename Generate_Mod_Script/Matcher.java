@@ -47,11 +47,7 @@ public class Matcher {
         }catch(Exception e)
         {
 
-        }
-        Scanner scanner = new Scanner(System.in);
-
-         
-         
+        }  
 
         //UI
 
